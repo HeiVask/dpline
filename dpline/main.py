@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# main.py is part file of dpline.
+# main.py is part file of self.remove.
 
 # Copyright 2015  Dimitris Zlatanidis  <d.zlatanidis@gmail.com>
 # All rights reserved.
 
-# dpline is tool to remove duplicate lines from file
+# self.remove is tool to remove duplicate lines from file
 
-# https://github.com/dslackw/dpline
+# https://github.com/dslackw/self.remove
 
 # Alarm is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -26,115 +26,121 @@ import os
 import sys
 
 
-__prog__ = "dpline"
+__prog__ = "self.remove"
 __author__ = "dslackw"
-__version_info__ = (1, 0)
+__version_info__ = (1, 1)
 __version__ = "{0}.{1}".format(*__version_info__)
 __license__ = "GNU General Public License v3 (GPLv3)"
 __email__ = "d.zlatanidis@gmail.com"
 
 
-OPTIONS = [
-    "-h", "--help",
-    "-v", "--version",
-    "-d", "--display",
-    "-p", "--preview",
-    "--ignore-blank",
-    "--case-ins"
-]
+class dpLine(object):
 
+    def __init__(self):
+        self.options = [
+            "-h", "--help",
+            "-v", "--version",
+            "-d", "--display",
+            "-p", "--preview",
+            "--ignore-blank",
+            "--case-ins"
+        ]
 
-def dpline(arg, filename, ignore_blank, case_insensitive):
-    """Remove duplicate lines from text files"""
-    newfile = []
-    if os.path.isfile(filename):
-        with open(filename, "r") as r:
-            oldfile = r.read().splitlines()
-            for line in oldfile:
-                if case_insensitive:
-                    line = line.lower()
-                if ignore_blank and not line:
-                    newfile.append(line)
-                elif line not in newfile:
-                    newfile.append(line)
-                else:
-                    if arg in OPTIONS[4:5] or arg in OPTIONS[6:7]:
-                        print(line)
-        if arg not in OPTIONS[6:7]:
-            with open(filename, "w") as w:
-                for line in newfile:
-                    w.write(line + "\n")
-    else:
-        not_access(filename)
-
-
-def arguments(args):
-    """Usage: dpline [OPTION] <file> [--ignore-blank, [--case-ins]]
-
-dpline is tool to remove duplicate lines from file
-
-Optional arguments:
-  -h, --help          Print this help message and exit
-  -v, --version       Print program version and exit
-  -d, --display       Display removed lines
-  -p, --preview       Preview duplicate lines before removal
-  --ignore-blank      Ignore blank lines from remove
-  --case-ins          Matching upper- and lowercase letters
-  """
-    args, ignore_blank, case_insensitive = flags(args)
-    if len(args) == 1 and args[0] in OPTIONS[:2]:
-        print(arguments.__doc__)
-    elif len(args) == 1 and args[0] in OPTIONS[2:4]:
-        version()
-    elif len(args) == 2 and args[0] in OPTIONS[4:5]:
-            dpline(args[0], args[1], ignore_blank, case_insensitive)
-    elif len(args) == 2 and args[0] in OPTIONS[6:7]:
-            dpline(args[0], args[1], ignore_blank, case_insensitive)
-    elif len(args) == 1:
-        if os.path.isfile(args[0]):
-            dpline("", args[0], ignore_blank, "")
+    def remove(self):
+        """Remove duplicate lines from text files"""
+        newfile = []
+        if os.path.isfile(self.filename):
+            with open(self.filename, "r") as r:
+                oldfile = r.read().splitlines()
+                for line in oldfile:
+                    if self.case_ins:
+                        line = line.lower()
+                    if self.ignore_blank and not line:
+                        newfile.append(line)
+                    elif line not in newfile:
+                        newfile.append(line)
+                    else:
+                        if (self.args[0] in self.options[4:5] or
+                                self.args[0] in self.options[6:7]):
+                            print(line)
+            if self.args[0] not in self.options[6:7]:
+                with open(self.filename, "w") as w:
+                    for line in newfile:
+                        w.write(line + "\n")
         else:
-            not_access(args)
-    else:
-        usage()
+            self.not_access()
 
+    def arguments(self, args):
+        """Control arguments"""
+        self.args = args
+        self.flags()
+        if len(self.args) == 1 and self.args[0] in self.options[:2]:
+            print(self.help.__doc__)
+        elif len(self.args) == 1 and self.args[0] in self.options[2:4]:
+            self.version()
+        elif len(self.args) == 2 and self.args[0] in self.options[4:5]:
+            self.filename = self.args[1]
+            self.remove()
+        elif len(self.args) == 2 and self.args[0] in self.options[6:7]:
+            self.filename = self.args[1]
+            self.remove()
+        elif len(self.args) == 1:
+            if os.path.isfile(self.args[0]):
+                self.filename = self.args[0]
+                self.remove()
+            else:
+                self.not_access()
+        else:
+            self.usage()
 
-def flags(args):
-    """Manage flags"""
-    ignore_blank, case_insensitive = False, False
-    for flag in (OPTIONS[8] + OPTIONS[9]):
-        if len(args) >= 2:
-            if args[-1] == OPTIONS[8]:
-                ignore_blank = True
-                index = args.index(args[-1])
-                del args[index]
-            if args[-1] == OPTIONS[9]:
-                case_insensitive = True
-                index = args.index(args[-1])
-                del args[index]
-    return args, ignore_blank, case_insensitive
+    def flags(self):
+        """Manage flags"""
+        self.ignore_blank, self.case_ins = False, False
+        for flag in (self.options[8] + self.options[9]):
+            if len(self.args) >= 2:
+                if self.args[-1] == self.options[8]:
+                    self.ignore_blank = True
+                    index = self.args.index(self.args[-1])
+                    del self.args[index]
+                if self.args[-1] == self.options[9]:
+                    self.case_ins = True
+                    index = self.args.index(self.args[-1])
+                    del self.args[index]
 
+    def not_access(self):
+        """Cannot access message and exit"""
+        sys.exit("%s: cannot access %s: No such file" % (
+            __prog__, self.filename))
 
-def not_access(args):
-    """Cannot access message and exit"""
-    sys.exit("%s: cannot access %s: No such file" % (__prog__, args[0]))
+    def help(self):
+        """Usage: self.remove [OPTION] <file> [--ignore-blank, [--case-ins]]
 
+    self.remove is tool to remove duplicate lines from file
 
-def usage():
-    """Usage message and exit"""
-    sys.exit("Usage: dpline [OPTION] <file> [--ignore-blank, [--case-ins]]\n\n"
-             "Type dpline --help to see a list of all options")
+    Optional arguments:
+    -h, --help          Print this help message and exit
+    -v, --version       Print program version and exit
+    -d, --display       Display removed lines
+    -p, --preview       Preview duplicate lines before removal
+    --ignore-blank      Ignore blank lines from remove
+    --case-ins          Matching upper- and lowercase letters
+    """
 
+    def usage(self):
+        """Usage message and exit"""
+        sys.exit("Usage: self.remove [OPTION] <file> [--ignore-blank, "
+                 "[--case-ins]]"
+                 "\n\nType self.remove --help to see a list of all options")
 
-def version():
-    """Print version and exit"""
-    sys.exit("%s %s" % (__prog__, __version__))
+    def version(self):
+        """Print version and exit"""
+        sys.exit("%s %s" % (__prog__, __version__))
 
 
 def main():
     args = sys.argv
     args.pop(0)
-    arguments(args)
+    dpLine().arguments(args)
 
 if __name__ == "__main__":
     main()
