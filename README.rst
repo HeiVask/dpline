@@ -32,7 +32,7 @@
 About
 -----
 
-Simple tool to remove duplicate lines from text file.
+CLI tool to remove duplicate lines from text file.
 
 
 Installation
