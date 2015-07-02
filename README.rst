@@ -4,7 +4,7 @@
     :target: https://travis-ci.org/dslackw/dpline
 .. image:: https://landscape.io/github/dslackw/dpline/master/landscape.png
     :target: https://landscape.io/github/dslackw/dpline/master
-.. image:: https://img.shields.io/codacy/22fbb1e64acc45a78de3c86233d88d9a.svg
+.. image:: https://img.shields.io/codacy/242f2dae7daa46b09121df3374bc5dd2.svg
     :target: https://www.codacy.com/public/dzlatanidis/dpline/dashboard
 .. image:: https://img.shields.io/pypi/dm/dpline.svg
     :target: https://pypi.python.org/pypi/dpline
