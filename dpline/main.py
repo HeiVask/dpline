@@ -113,24 +113,24 @@ class dpLine(object):
             __prog__, self.filename))
 
     def help(self):
-        """Usage: self.remove [OPTION] <file> [--ignore-blank, [--case-ins]]
+        """Usage: dpline [OPTION] <file> [--ignore-blank, [--case-ins]]
 
-    self.remove is tool to remove duplicate lines from file
+dpline is tool to remove duplicate lines from file
 
-    Optional arguments:
-    -h, --help          Print this help message and exit
-    -v, --version       Print program version and exit
-    -d, --display       Display removed lines
-    -p, --preview       Preview duplicate lines before removal
-    --ignore-blank      Ignore blank lines from remove
-    --case-ins          Matching upper- and lowercase letters
+Optional arguments:
+  -h, --help          Print this help message and exit
+  -v, --version       Print program version and exit
+  -d, --display       Display removed lines
+  -p, --preview       Preview duplicate lines before removal
+  --ignore-blank      Ignore blank lines from remove
+  --case-ins          Matching upper- and lowercase letters
     """
 
     def usage(self):
         """Usage message and exit"""
-        sys.exit("Usage: self.remove [OPTION] <file> [--ignore-blank, "
+        sys.exit("Usage: dpline [OPTION] <file> [--ignore-blank, "
                  "[--case-ins]]"
-                 "\n\nType self.remove --help to see a list of all options")
+                 "\n\nType dpline --help to see a list of all options")
 
     def version(self):
         """Print version and exit"""
