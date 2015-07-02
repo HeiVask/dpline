@@ -47,20 +47,15 @@ setup(
     classifiers=[
         "Classifier: Development Status :: 3 - Alpha",
         "Classifier: Environment :: Console",
-        "License :: OSI Approved :: GNU General Public License v3 or later "
-        "(GPLv3+)",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "Classifier: Operating System :: POSIX",
         "Classifier: Operating System :: POSIX :: Linux",
         "Classifier: Operating System :: Unix",
         "Classifier: Programming Language :: Python",
-        "Classifier: Programming Language :: Python :: 2.5",
-        "Classifier: Programming Language :: Python :: 2.6",
-        "Classifier: Programming Language :: Python :: 2.7",
+        "Classifier: Programming Language :: Python :: 2",
         "Classifier: Programming Language :: Python :: 3",
-        "Classifier: Programming Language :: Python :: 3.0",
-        "Classifier: Programming Language :: Python :: 3.1",
-        "Classifier: Programming Language :: Python :: 3.2",
-        "Classifier: Programming Language :: Python :: 3.3",
-        "Classifier: Programming Language :: Python :: 3.4",
+        "Classifier: Topic :: Text Processing :: Filters",
+        "Classifier: Topic :: Text Processing :: General",
         ],
     long_description=open("README").read()
 )
