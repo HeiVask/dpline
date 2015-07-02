@@ -1,3 +1,25 @@
+.. image:: https://img.shields.io/github/release/dslackw/dpline.svg
+    :target: https://github.com/dslackw/dpline/releases
+.. image:: https://travis-ci.org/dslackw/dpline.svg?branch=master
+    :target: https://travis-ci.org/dslackw/dpline
+.. image:: https://landscape.io/github/dslackw/dpline/master/landscape.png
+    :target: https://landscape.io/github/dslackw/dpline/master
+.. image:: https://img.shields.io/codacy/22fbb1e64acc45a78de3c86233d88d9a.svg
+    :target: https://www.codacy.com/public/dzlatanidis/dpline/dashboard
+.. image:: https://img.shields.io/pypi/dm/dpline.svg
+    :target: https://pypi.python.org/pypi/dpline
+.. image:: https://img.shields.io/badge/license-GPLv3-blue.svg
+    :target: https://github.com/dslackw/dpline
+.. image:: https://img.shields.io/github/stars/dslackw/dpline.svg
+    :target: https://github.com/dslackw/dpline
+.. image:: https://img.shields.io/github/forks/dslackw/dpline.svg
+    :target: https://github.com/dslackw/dpline
+.. image:: https://img.shields.io/github/issues/dslackw/dpline.svg
+    :target: https://github.com/dslackw/dpline/issues
+ 
+
+.. code-block:: bash
+
          _       _ _            
       __| |_ __ | (_)_ __   ___ 
      / _` | '_ \| | | '_ \ / _ \
@@ -16,6 +38,8 @@ Simple tool to remove duplicate lines from text file.
 Installation
 ------------
 
+.. code-block:: bash
+
     $ tar xvf dpline-<version>.tar.gz
     $ cd dpline-<version>
     $ python setup.py install
@@ -32,6 +56,8 @@ Installation
 
 Command Line Tool Usage
 -----------------------
+
+.. code-block:: bash
 
     Usage: dpline [OPTION] <file> [--ignore-blank, [--case-ins]]
 
