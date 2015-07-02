@@ -45,7 +45,6 @@ setup(
     url="https://github.com/dslackw/dpline",
     package_data={"": ["LICENSE", "README", "ChangeLog.txt"]},
     classifiers=[
-        "Development Status :: 3 - Alpha",
         "Classifier: Development Status :: 3 - Alpha",
         "Classifier: Environment :: Console",
         "License :: OSI Approved :: GNU General Public License v3 or later "
