@@ -43,7 +43,7 @@ setup(
     author=__author__,
     author_email=__email__,
     url="https://github.com/dslackw/dpline",
-    package_data={"": ["LICENSE", "README", "ChangeLog.txt"]},
+    package_data={"": ["LICENSE", "README.rst", "ChangeLog.txt"]},
     classifiers=[
         "Classifier: Development Status :: 3 - Alpha",
         "Classifier: Environment :: Console",
@@ -57,7 +57,7 @@ setup(
         "Classifier: Topic :: Text Processing :: Filters",
         "Classifier: Topic :: Text Processing :: General",
         ],
-    long_description=open("README").read()
+    long_description=open("README.rst").read()
 )
 
 if "install" in sys.argv and sys.platform == "linux2":
