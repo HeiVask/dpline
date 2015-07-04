@@ -41,7 +41,9 @@ class dpLine(object):
             "-h", "--help",
             "-v", "--version",
             "-d", "--display",
-            "-p", "--preview",
+            "-p", "--preview"
+        ]
+        self.flags = [
             "--ignore-blank",
             "--case-ins"
         ]
@@ -73,7 +75,7 @@ class dpLine(object):
     def arguments(self, args):
         """Control arguments"""
         self.args = args
-        self.flags()
+        self.manage_flags()
         if len(self.args) == 1 and self.args[0] in self.options[:2]:
             print(self.help.__doc__)
         elif len(self.args) == 1 and self.args[0] in self.options[2:4]:
@@ -93,16 +95,16 @@ class dpLine(object):
         else:
             self.usage()
 
-    def flags(self):
+    def manage_flags(self):
         """Manage flags"""
         self.ignore_blank, self.case_ins = False, False
-        for flag in (self.options[8] + self.options[9]):
+        for i in range(0, len(self.flags)):
             if len(self.args) >= 2:
-                if self.args[-1] == self.options[8]:
+                if self.args[-1] == self.flags[0]:
                     self.ignore_blank = True
                     index = self.args.index(self.args[-1])
                     del self.args[index]
-                if self.args[-1] == self.options[9]:
+                if self.args[-1] == self.flags[1]:
                     self.case_ins = True
                     index = self.args.index(self.args[-1])
                     del self.args[index]
