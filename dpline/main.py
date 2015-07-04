@@ -6,7 +6,7 @@
 # Copyright 2015  Dimitris Zlatanidis  <d.zlatanidis@gmail.com>
 # All rights reserved.
 
-# self.remove is tool to remove duplicate lines from file
+# dpline is tool to remove duplicate lines from file
 
 # https://github.com/dslackw/self.remove
 
@@ -35,6 +35,7 @@ __email__ = "d.zlatanidis@gmail.com"
 
 
 class dpLine(object):
+    """dpline is tool to remove duplicate lines from file"""
 
     def __init__(self):
         self.options = [
