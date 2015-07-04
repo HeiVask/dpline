@@ -26,7 +26,7 @@ import os
 import sys
 
 
-__prog__ = "self.remove"
+__prog__ = "dpline"
 __author__ = "dslackw"
 __version_info__ = (1, 1)
 __version__ = "{0}.{1}".format(*__version_info__)
