@@ -98,7 +98,7 @@ class dpLine(object):
     def manage_flags(self):
         """Manage flags"""
         self.ignore_blank, self.case_ins = False, False
-        for i in range(0, len(self.flags)):
+        for n in range(0, len(self.flags)):
             if len(self.args) >= 2:
                 if self.args[-1] == self.flags[0]:
                     self.ignore_blank = True
@@ -108,6 +108,7 @@ class dpLine(object):
                     self.case_ins = True
                     index = self.args.index(self.args[-1])
                     del self.args[index]
+        del n
 
     def not_access(self):
         """Cannot access message and exit"""
