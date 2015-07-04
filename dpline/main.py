@@ -108,7 +108,7 @@ class dpLine(object):
                     self.case_ins = True
                     index = self.args.index(self.args[-1])
                     del self.args[index]
-        del n
+            del n
 
     def not_access(self):
         """Cannot access message and exit"""
