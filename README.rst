@@ -59,7 +59,8 @@ Command Line Tool Usage
 
 .. code-block:: bash
 
-    Usage: dpline [OPTION] <file> [--ignore-blank, [--case-ins]]
+    Usage: dpline [OPTION] <file> [--ignore-blank, [--case-ins],
+                                   --number]]
 
     dpline is tool to remove duplicate lines from file
 
@@ -70,3 +71,4 @@ Command Line Tool Usage
       -p, --preview       Preview duplicate lines before removal
       --ignore-blank      Ignore blank lines from remove
       --case-ins          Matching upper- and lowercase letters
+      --number            View duplicate line number

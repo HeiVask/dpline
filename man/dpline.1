@@ -16,13 +16,14 @@
 dpline is tool to remove duplicate lines from file
 
 .SH SYNOPSIS
-Usage: dpline [OPTION] <file> [--ignore-blank, [--case-ins]]
+Usage: dpline [OPTION] <file> [--ignore-blank, [--case-ins], [--number]]
 
 .SH DESCRIPTION
 Simple tool to remove duplicate lines from text file
 
 .SH EXAMPLES
-Usage: dpline [OPTION] <file> [--ignore-blank, [--case-ins]]
+Usage: dpline [OPTION] <file> [--ignore-blank, [--case-ins],
+                               --number]]
 
 dpline is tool to remove duplicate lines from file
 
@@ -33,6 +34,7 @@ Optional arguments:
   -p, --preview       Preview duplicate lines before removal
   --ignore-blank      Ignore blank lines from remove
   --case-ins          Matching upper- and lowercase letters
+  --number            View duplicate line number
 
 .SH GLOBAL OPTIONS
 .SS
@@ -47,16 +49,21 @@ Remove duplicate lines and display of lines removed
 .SS -p, --preview, Preview duplicate lines before removal
 \fBdpline\fP \fB--preview\fP \fI<file>\fP
 .PP
-Before remove duplicate lines you can see results with thiw command
+Before remove duplicate lines you can see results with this command
 
 .SS --ignore-blank, Ignore blank lines from remove
 .PP
-Add this flag in the end to ignore remove blank lines from text file
+Add this flag in the end of argument to ignore remove blank lines 
+from text file
 
 .SS --case-ins, Case insensitive
 .PP
-Add this flag in the end to treating or interpreting upper- and lowercase 
-letters as being the same
+Add this flag in the end of argument to treating or interpreting upper- and 
+lowercase letters as being the same
+
+.SS --number, view duplicate line number
+.PP
+Add this flag in the end of argument to view duplicate line number
 
 .SH HELP OPTION
 Specifying the help option displays help for dpline itself, or a
