@@ -1,4 +1,8 @@
-1-1 - 03-07-2015
+1.2 - 19/09/2015
+Added:
+- Flag "--number" to view duplicate line number
+
+1.1 - 03/07/2015
 Updated:
 - From functional to class object
 

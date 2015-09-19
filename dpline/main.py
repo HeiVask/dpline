@@ -28,7 +28,7 @@ import sys
 
 __prog__ = "dpline"
 __author__ = "dslackw"
-__version_info__ = (1, 1)
+__version_info__ = (1, 2)
 __version__ = "{0}.{1}".format(*__version_info__)
 __license__ = "GNU General Public License v3 (GPLv3)"
 __email__ = "d.zlatanidis@gmail.com"
@@ -46,16 +46,20 @@ class dpLine(object):
         ]
         self.flags = [
             "--ignore-blank",
-            "--case-ins"
+            "--case-ins",
+            "--number"
         ]
 
     def remove(self):
         """Remove duplicate lines from text files"""
-        newfile = []
+        num, space, newfile = 0, "", []
         if os.path.isfile(self.filename):
             with open(self.filename, "r") as r:
                 oldfile = r.read().splitlines()
                 for line in oldfile:
+                    if self.number:
+                        num += 1
+                        space = " "
                     if self.case_ins:
                         line = line.lower()
                     if self.ignore_blank and not line:
@@ -65,7 +69,9 @@ class dpLine(object):
                     else:
                         if (self.args[0] in self.options[4:5] or
                                 self.args[0] in self.options[6:7]):
-                            print(line)
+                            if num == 0:
+                                num = str()
+                            print("{0}{1}{2}".format(num, space, line))
             if self.args[0] not in self.options[6:7]:
                 with open(self.filename, "w") as w:
                     for line in newfile:
@@ -98,7 +104,9 @@ class dpLine(object):
 
     def manage_flags(self):
         """Manage flags"""
-        self.ignore_blank, self.case_ins = False, False
+        self.ignore_blank = False
+        self.case_ins = False
+        self.number = False
         for n in range(0, len(self.flags)):
             if len(self.args) >= 2:
                 if self.args[-1] == self.flags[0]:
@@ -109,6 +117,10 @@ class dpLine(object):
                     self.case_ins = True
                     index = self.args.index(self.args[-1])
                     del self.args[index]
+                if self.args[-1] == self.flags[2]:
+                    self.number = True
+                    index = self.args.index(self.args[-1])
+                    del self.args[index]
             del n
 
     def not_access(self):
@@ -117,7 +129,8 @@ class dpLine(object):
             __prog__, self.filename))
 
     def help(self):
-        """Usage: dpline [OPTION] <file> [--ignore-blank, [--case-ins]]
+        """Usage: dpline [OPTION] <file> [--ignore-blank, [--case-ins],
+                              [--number]]
 
 dpline is tool to remove duplicate lines from file
 
@@ -128,12 +141,13 @@ Optional arguments:
   -p, --preview       Preview duplicate lines before removal
   --ignore-blank      Ignore blank lines from remove
   --case-ins          Matching upper- and lowercase letters
+  --number            View duplicate line number
     """
 
     def usage(self):
         """Usage message and exit"""
         sys.exit("Usage: dpline [OPTION] <file> [--ignore-blank, "
-                 "[--case-ins]]"
+                 "[--case-ins], [--number]]"
                  "\n\nType dpline --help to see a list of all options")
 
     def version(self):
