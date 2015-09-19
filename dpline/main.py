@@ -52,14 +52,14 @@ class dpLine(object):
 
     def remove(self):
         """Remove duplicate lines from text files"""
-        num, space, newfile = 0, "", []
+        num, sp, newfile = 0, "", []
         if os.path.isfile(self.filename):
             with open(self.filename, "r") as r:
                 oldfile = r.read().splitlines()
                 for line in oldfile:
                     if self.number:
                         num += 1
-                        space = " "
+                        sp = ": "
                     if self.case_ins:
                         line = line.lower()
                     if self.ignore_blank and not line:
@@ -71,7 +71,7 @@ class dpLine(object):
                                 self.args[0] in self.options[6:7]):
                             if num == 0:
                                 num = str()
-                            print("{0}{1}{2}".format(num, space, line))
+                            print("{0}{1}{2}".format(num, sp, line))
             if self.args[0] not in self.options[6:7]:
                 with open(self.filename, "w") as w:
                     for line in newfile:
