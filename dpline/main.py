@@ -83,6 +83,7 @@ class dpLine(object):
         """Control arguments"""
         self.args = args
         self.manage_flags()
+        self.filename = self.args[0]
         if len(self.args) == 1 and self.args[0] in self.options[:2]:
             print(self.help.__doc__)
         elif len(self.args) == 1 and self.args[0] in self.options[2:4]:
@@ -95,7 +96,6 @@ class dpLine(object):
             self.remove()
         elif len(self.args) == 1:
             if os.path.isfile(self.args[0]):
-                self.filename = self.args[0]
                 self.remove()
             else:
                 self.not_access()
