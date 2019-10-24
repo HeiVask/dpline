@@ -83,7 +83,8 @@ class dpLine(object):
         """Control arguments"""
         self.args = args
         self.manage_flags()
-        self.filename = self.args[0]
+        if len(self.args) > 0:
+            self.filename = self.args[0]
         if len(self.args) == 1 and self.args[0] in self.options[:2]:
             print(self.help.__doc__)
         elif len(self.args) == 1 and self.args[0] in self.options[2:4]:
@@ -159,6 +160,7 @@ def main():
     args = sys.argv
     args.pop(0)
     dpLine().arguments(args)
+
 
 if __name__ == "__main__":
     main()
