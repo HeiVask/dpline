@@ -3,7 +3,7 @@
 
 # main.py is part file of self.remove.
 
-# Copyright 2015  Dimitris Zlatanidis  <d.zlatanidis@gmail.com>
+# Copyright 2015-2019  Dimitris Zlatanidis  <d.zlatanidis@gmail.com>
 # All rights reserved.
 
 # dpline is tool to remove duplicate lines from file
@@ -28,7 +28,7 @@ import sys
 
 __prog__ = "dpline"
 __author__ = "dslackw"
-__version_info__ = (1, 3)
+__version_info__ = (1, 4)
 __version__ = "{0}.{1}".format(*__version_info__)
 __license__ = "GNU General Public License v3 (GPLv3)"
 __email__ = "d.zlatanidis@gmail.com"
