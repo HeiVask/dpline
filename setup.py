@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # setup.py file is part of dpline.
@@ -51,8 +51,6 @@ setup(
         "Classifier: Operating System :: POSIX",
         "Classifier: Operating System :: POSIX :: Linux",
         "Classifier: Operating System :: Unix",
-        "Classifier: Programming Language :: Python",
-        "Classifier: Programming Language :: Python :: 2",
         "Classifier: Programming Language :: Python :: 3",
         "Classifier: Topic :: Text Processing :: Filters",
         "Classifier: Topic :: Text Processing :: General",
